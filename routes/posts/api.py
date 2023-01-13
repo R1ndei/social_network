@@ -14,7 +14,7 @@ post_router = APIRouter(prefix=settings.API_PATH_V1 + "authorization",
 
 @post_router.get("/post")
 async def all_posts(with_user_posts: bool, user: User = Depends(get_current_user)):
-    return await get_all_posts_db()
+    return await get_all_posts_db(with_user_posts, user)
 
 
 @post_router.post("/post")

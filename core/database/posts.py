@@ -15,8 +15,11 @@ from resources.users.models import User
 settings = main_settings()
 
 
-async def get_all_posts_db() -> any:
-    return await Post.objects.all()
+async def get_all_posts_db(with_user_posts: bool, user: User) -> any:
+    if with_user_posts:
+        return await Post.objects.all()
+    else:
+        return await Post.objects.exclude(creator__id=user.id).all()
 
 
 async def create_post(post_data: Post) -> Post:
