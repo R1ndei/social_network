@@ -7,7 +7,7 @@ https://github.com/R1ndei/social_network.git
 ```
 go to main project directory
 
-activate vvirtual environment
+activate virtual environment
 
 
 ```bash
