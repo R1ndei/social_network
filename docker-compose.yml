@@ -58,39 +58,6 @@ services:
       - backend
     networks:
       - esb_network
-#  celery_worker:
-#    container_name: celery_worker_asyncpg
-#    restart: always
-#    image: celery_worker_asyncpg_image
-#    build: .
-#    command: python -m celery -A celery_worker.celery worker -B --loglevel=info
-#    volumes:
-#      - ./:/usr/src/app
-#    environment:
-#      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
-#      - CELERY_RESULT_BACKEND=${CELERY_RESULT_BACKEND}
-#    depends_on:
-#      - backend
-#      - redis
-#    networks:
-#      - esb_network
-#  flower:
-#    container_name: flower_asyncpg
-#    restart: always
-#    image: flower_asyncpg_image
-#    build: .
-#    command: python -m celery -A celery_worker.celery flower --port=5555 --broker=${CELERY_BROKER_URL} --basic_auth=${FLOWER_USER}:${FLOWER_PASSWORD}
-#    ports:
-#      - '5555:5555'
-#    environment:
-#      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
-#      - CELERY_RESULT_BACKEND=${CELERY_RESULT_BACKEND}
-#    depends_on:
-#      - backend
-#      - redis
-#      - celery_worker
-#    networks:
-#      - esb_network
 networks:
   esb_network:
     driver: bridge
