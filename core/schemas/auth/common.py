@@ -1,6 +1,5 @@
-from pydantic import BaseModel, Field, EmailStr, validator, validate_email, EmailError
-from typing import Optional
 from fastapi import HTTPException, status
+from pydantic import BaseModel, Field, EmailStr, validator
 
 from core.validators import is_email, is_phone
 

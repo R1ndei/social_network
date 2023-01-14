@@ -1,9 +1,9 @@
+import uvicorn
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from config.config import main_settings
 from config.db_config import database
-import uvicorn
 from routes.routes import routes
 
 settings = main_settings()

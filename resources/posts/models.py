@@ -56,7 +56,7 @@ class Like(ormar.Model):
 
     id: int = ormar.Integer(primary_key=True, nullable=False)
     user: User = ormar.ForeignKey(
-        Post,
+        User,
         nullable=False,
         related_name="user_like",
         ondelete="CASCADE",
@@ -78,7 +78,7 @@ class DisLike(ormar.Model):
 
     id: int = ormar.Integer(primary_key=True, nullable=False)
     user: User = ormar.ForeignKey(
-        Post,
+        User,
         nullable=False,
         related_name="user_dislike",
         ondelete="CASCADE",

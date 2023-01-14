@@ -1,8 +1,8 @@
-from fastapi import APIRouter, Depends, Response
+from fastapi import APIRouter, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 
 from config.config import main_settings
-from core.auth.auth_logic import check_user, get_current_user
+from core.auth.auth_logic import check_user
 from core.database.users import create_user
 from core.schemas.auth.common import Token, RegisterSchema, RegisterOutSchema
 from resources.users.models import User

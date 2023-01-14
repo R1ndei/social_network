@@ -1,6 +1,4 @@
 import datetime
-import uuid
-from enum import Enum
 
 moscow_time = datetime.datetime.utcnow() + datetime.timedelta(hours=3)
 moscow_time_format = moscow_time.strftime('%Y.%m.%dT%X')

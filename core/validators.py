@@ -1,10 +1,9 @@
-import datetime
 import re
+
 import pydantic
-import pytz
-from config.config import main_settings
-from typing import Optional
 from fastapi import HTTPException, status
+
+from config.config import main_settings
 
 settings = main_settings()
 
@@ -24,7 +23,7 @@ def is_phone(value: str, raise_err: bool = True) -> str | bool:
         return value
     else:
         if raise_err:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Введите корректный номер телефона")
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Please enter a valid phone number")
         return False
 
 

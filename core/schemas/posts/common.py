@@ -1,6 +1,7 @@
-from pydantic import BaseModel, Field, EmailStr, validator, validate_email, EmailError
+import datetime
 from typing import Optional
-from fastapi import HTTPException, status
+
+from pydantic import BaseModel
 
 
 class PostCreateSchema(BaseModel):
@@ -28,3 +29,44 @@ class PostUpdateOut(PostOutBase):
 
 class PostDeleteOut(PostOutBase):
     pass
+
+
+class AllPostPhotoOut(BaseModel):
+    id: int
+    name: str
+
+
+class AllPostCreatorOut(BaseModel):
+    id: int
+    email: str
+    first_name: str
+    last_name: str
+
+
+class AllPostsOut(BaseModel):
+    id: int
+    head: str
+    main_text: str
+    likes: int
+    dislikes: int
+    created_at: datetime.datetime
+    updated_at: datetime.datetime
+    post_photo: list[AllPostPhotoOut]
+    creator: AllPostCreatorOut
+
+
+class CurrentPostLikes(BaseModel):
+    id: int
+    created_at: datetime.datetime
+    user: AllPostCreatorOut
+
+
+class CurrentPostDislikes(BaseModel):
+    id: int
+    created_at: datetime.datetime
+    user: AllPostCreatorOut
+
+
+class CurrenPostOut(AllPostsOut):
+    post_like: list[CurrentPostLikes]
+    post_dislike: list[CurrentPostDislikes]
